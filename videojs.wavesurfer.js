@@ -430,18 +430,18 @@
         onScreenChange: function()
         {
             var isFullscreen = this.player().isFullscreen();
-            var newHeight;
+            var newHeight = this.originalHeight;
 
-            if (!isFullscreen)
-            {
-                // restore original height
-                newHeight = this.originalHeight;
-            }
-            else
-            {
-                // fullscreen height
-                newHeight = window.outerHeight;
-            }
+            // if (!isFullscreen)
+            // {
+            //     // restore original height
+            //     newHeight = this.originalHeight;
+            // }
+            // else
+            // {
+            //     // fullscreen height
+            //     newHeight = window.outerHeight;
+            // }
 
             if (this.waveReady)
             {

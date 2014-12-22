@@ -4,11 +4,43 @@
   <title>Wavesurfer Plugin for Video.js Example</title>
 
   <link href="http://vjs.zencdn.net/4.11.1/video-js.css" rel="stylesheet">
-
+  
   <script src="http://vjs.zencdn.net/4.11.1/video.js"></script>
   <script src="http://wavesurfer.fm/build/wavesurfer.min.js"></script>
   <script src="../videojs.wavesurfer.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+  <style>
+  #debug {
+    position: fixed;
+    border: 1px dotted black;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+  }
+  .vjs-default-skin .vjs-control:before {
+    text-shadow: none;
+  }
+
+  .vjs-volume-level{
+    background: #4fc8ad!important;
+  }
+  .vjs-default-skin .vjs-slider-handle:before {
+    content: "";
+  }
+  .vjs-waveform {
+    outline: none;
+  }
+  .vjs-fullscreen .vjs-waveform {
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 100%;
+    line-height: 100%;
+    margin-top: 50%;
+    transform: translateY(-50%);
+  }
+  </style>
 </head>
 <body>
 
@@ -24,19 +56,23 @@ var player = videojs("myAudio",
     height: 300,
     plugins: {
         wavesurfer: {
-            src: "media/heres_johnny.wav",
+            //src: "media/heres_johnny.wav",
+            src: "media/test/milk.mp3", // 15mb
             msDisplayMax: 10,
-            waveColor: "grey",
-            progressColor: "black",
-            cursorColor: "black",
-            hideScrollbar: true
+            waveColor: "#37b39b",
+            progressColor: "#4fc8ad",
+            // cursorColor: "rgba(0,0,0,0.5)",
+            // hideScrollbar: true,
+            scrollParent: true,
+            normalize: true,
+            minPxPerSec: 50
         }
     }
 });
 
 // change player background color
-player.el().style.backgroundColor = "#FFEEFF";
-</script>
+player.el().style.backgroundColor = "#434A54";
 
+</script>
 </body>
 </html>
